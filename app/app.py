@@ -1,12 +1,14 @@
+import os
 from flask import Flask, request, render_template
 import joblib
 import pandas as pd
 
 # Initialize the Flask app
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 app = Flask(__name__)
 
 # Load the saved model
-model = joblib.load('suicide_prediction_model.pkl')
+model = joblib.load(os.path.join(BASE_DIR, 'models', 'suicide_prediction_model.pkl'))
 
 # Define the route for the main page
 @app.route('/')

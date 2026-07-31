@@ -163,16 +163,24 @@ A predicted **suicide rate category** (e.g., `100-500`, `1000-5000`).
 
 ```
 Sucide-prediction/
-├── IBM_INTERNSHIP_GPG_GIRLS.ipynb     # Full analysis & model training notebook
-├── app.py                              # Flask web application
-├── index.html                          # Frontend form template
-├── Suicides in India 2001-2012.csv     # Raw dataset
-├── suicide_prediction_model.pkl        # Trained XGBoost model (serialized)
-├── suicides_in_india_profile_report.html  # Pandas Profiling report
+├── app/                                # Flask web application
+│   ├── app.py                          # Main Flask server
+│   └── templates/
+│       └── index.html                  # Frontend form template
+├── assets/                             # Static assets
+│   └── download.jpg                    # Project image
+├── data/                               # Raw & processed datasets
+│   └── Suicides in India 2001-2012.csv # Raw dataset (NCRB)
+├── docs/                               # Documentation & presentations
+│   ├── IBM PPT.pdf                     # IBM internship presentation
+│   └── IBM concept note.pdf            # Project concept note
+├── models/                             # Trained model artifacts
+│   └── suicide_prediction_model.pkl    # Trained XGBoost model
+├── notebooks/                          # Jupyter notebooks
+│   └── IBM_INTERNSHIP_GPG_GIRLS.ipynb  # Full analysis & training
+├── reports/                            # Generated analysis reports
+│   └── suicides_in_india_profile_report.html  # Pandas Profiling report
 ├── requirements.txt                    # Python dependencies
-├── download.jpg                        # Project image asset
-├── IBM PPT.pdf                         # IBM internship presentation
-├── IBM concept note.pdf                # Project concept note
 └── README.md                           # This file
 ```
 
@@ -206,7 +214,7 @@ Sucide-prediction/
 
 4. **Run the Flask app**
    ```bash
-   python app.py
+   python app/app.py
    ```
 
 5. **Open in browser**
@@ -220,13 +228,13 @@ Sucide-prediction/
 
 ### Jupyter Notebook (Analysis & Training)
 ```bash
-jupyter notebook IBM_INTERNSHIP_GPG_GIRLS.ipynb
+jupyter notebook notebooks/IBM_INTERNSHIP_GPG_GIRLS.ipynb
 ```
 Run all cells to reproduce the full analysis pipeline — from data cleaning and EDA through model training and evaluation.
 
 ### Web App (Predictions)
 ```bash
-python app.py
+python app/app.py
 ```
 Fill in the form fields on the web interface and click **Predict** to get the predicted suicide rate category.
 
